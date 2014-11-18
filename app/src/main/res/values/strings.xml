@@ -5,9 +5,15 @@
     <string name="title_section1">Section 1</string>
     <string name="title_section2">Section 2</string>
     <string name="title_section3">Section 3</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="welcomingMessage">This is the first page for preference</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_settings">SettingsActivity</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_welcome">WelcomeActivity</string>
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="fullPageWelcomeMessage">Welcome\nFirst\nPage</string>
+    <string name="title_activity_tweets">Tweets</string>
+    <string name="tweetsMessage">Here some tweets!</string>
 
 </resources>

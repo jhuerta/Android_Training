@@ -9,6 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/Net" />
+            <option value="$PROJECT_DIR$/YambaUtilities" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
