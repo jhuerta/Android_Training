@@ -1,1 +1,1 @@
-include ':app', ':Net', ':YambaUtilities'
+include ':app', ':Net', ':YambaUtilities', ':Client'

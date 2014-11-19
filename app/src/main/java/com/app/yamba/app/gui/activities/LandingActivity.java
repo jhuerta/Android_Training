@@ -21,13 +21,12 @@ public class LandingActivity extends Activity {
         if(PreferencesHelper.getIsApplicationAlreadyRun(this))
         {
             Log.i(TAG_LOG_LANDING_ACTIVITY, "OnCreate Application has run");
-            startActivity(new Intent(this, TweetsActivity.class));
+            startActivity(new Intent(this, TweetsTimeLineActivity.class));
         }
         else
         {
             Log.i(TAG_LOG_LANDING_ACTIVITY, "OnCreate Application has not run");
             startActivity(new Intent(this, WelcomeActivity.class));
-            //startActivity(new Intent(this, WelcomeActivity.class));
         }
 
         finish();
@@ -36,7 +35,7 @@ public class LandingActivity extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        //getMenuInflater().inflate(R.menu.menu_settings_activity, menu);
+        //getMenuInflater().inflate(R.menu.menu_welcome_activity, menu);
         return true;
     }
 

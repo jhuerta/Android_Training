@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Client/Client.iml" filepath="$PROJECT_DIR$/Client/Client.iml" />
       <module fileurl="file://$PROJECT_DIR$/Net/Net.iml" filepath="$PROJECT_DIR$/Net/Net.iml" />
       <module fileurl="file://$PROJECT_DIR$/Yamba.iml" filepath="$PROJECT_DIR$/Yamba.iml" />
       <module fileurl="file://$PROJECT_DIR$/YambaUtilities/YambaUtilities.iml" filepath="$PROJECT_DIR$/YambaUtilities/YambaUtilities.iml" />

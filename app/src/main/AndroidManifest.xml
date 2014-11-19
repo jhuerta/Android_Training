@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.app.yamba.app.gui.activities.WelcomeActivity"
+            android:name="com.app.yamba.app.gui.activities.WelcomeActivity2"
             android:label="@string/title_activity_welcome" >
         </activity>
         <activity
@@ -33,6 +33,32 @@
         <activity
             android:name="com.app.yamba.app.gui.activities.TweetsActivity"
             android:label="@string/title_activity_tweets" >
+        </activity>
+        <activity
+            android:name="com.app.yamba.app.gui.activities.WelcomeActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_welcome"
+            android:theme="@style/FullscreenTheme" >
+        </activity>
+        <activity
+            android:name="com.app.yamba.app.gui.activities.StatusActivity"
+            android:label="@string/title_activity_status" >
+        </activity>
+
+        <service
+            android:name="com.app.yamba.app.services.TweetsRefreshService"
+            android:exported="false" >
+        </service>
+
+        <receiver
+            android:name="com.app.yamba.app.services.TweetsNotificationReceiver"
+            android:enabled="true"
+            android:exported="true" >
+        </receiver>
+
+        <activity
+            android:name="com.app.yamba.app.gui.activities.TweetsTimeLineActivity"
+            android:label="@string/title_activity_tweets_time_line" >
         </activity>
     </application>
 
