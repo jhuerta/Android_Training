@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Stack;
 
 import org.apache.http.HttpEntity;
+import org.apache.http.HttpHost;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.auth.AuthScope;
@@ -22,6 +23,7 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.conn.ConnectTimeoutException;
+import org.apache.http.conn.params.ConnRoutePNames;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.params.BasicHttpParams;
@@ -237,6 +239,9 @@ public final class YambaClient {
             HttpGet get = new HttpGet(
                     this.getUri("/statuses/friends_timeline.xml"));
             HttpClient client = this.getHttpClient();
+
+            client.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY, new HttpHost("vmproxy.upu.ch",3128));
+
             try {
                 Log.d(TAG, "Getting " + get.getURI());
                 HttpResponse response = client.execute(get);

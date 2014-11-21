@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 
 import com.app.yamba.app.R;
 
-public class TweetsActivity extends Activity {
+public class TweetsEditorActivity extends SubActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

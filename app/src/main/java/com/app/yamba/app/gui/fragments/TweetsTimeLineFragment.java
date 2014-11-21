@@ -1,4 +1,4 @@
-package org.foo.yamba.app.gui.fragments;
+package com.app.yamba.app.gui.fragments;
 
 import android.app.ListFragment;
 import android.app.LoaderManager.LoaderCallbacks;
@@ -16,14 +16,16 @@ import android.widget.SimpleCursorAdapter.ViewBinder;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.app.yamba.app.R;
+import com.app.yamba.app.gui.views.FreshnessView;
+import com.app.yamba.app.model.TweetModel;
 
 
-public class TweetsTimelineFragment extends ListFragment implements
+public class TweetsTimeLineFragment extends ListFragment implements
         LoaderCallbacks<Cursor> {
-    private static final String TAG = TweetsTimelineFragment.class.getSimpleName();
-    private static final String[] FROM = { StatusContract.Column.USER,
-            StatusContract.Column.MESSAGE, StatusContract.Column.CREATED_AT,
-            StatusContract.Column.CREATED_AT };
+    private static final String TAG = TweetsTimeLineFragment.class.getSimpleName();
+    private static final String[] FROM = { TweetModel.Column.USER,
+            TweetModel.Column.MESSAGE, TweetModel.Column.CREATED_AT,
+            TweetModel.Column.CREATED_AT };
     private static final int[] TO = { R.id.list_item_text_user,
             R.id.list_item_text_message, R.id.list_item_text_created_at,
             R.id.list_item_freshness };
@@ -58,7 +60,7 @@ public class TweetsTimelineFragment extends ListFragment implements
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        mAdapter = new SimpleCursorAdapter(getActivity(), R.layout.list_item,
+        mAdapter = new SimpleCursorAdapter(getActivity(), R.layout.fragment_tweet_details_list_item,
                 null, FROM, TO, 0);
         mAdapter.setViewBinder(VIEW_BINDER);
 
@@ -79,7 +81,7 @@ public class TweetsTimelineFragment extends ListFragment implements
             fragment.updateView(id);
         } else {
             startActivity(new Intent(getActivity(), DetailsActivity.class)
-                    .putExtra(StatusContract.Column.ID, id));
+                    .putExtra(TweetModel.Column.ID, id));
         }
     }
 
@@ -92,8 +94,8 @@ public class TweetsTimelineFragment extends ListFragment implements
             return null;
         Log.d(TAG, "onCreateLoader");
 
-        return new CursorLoader(getActivity(), StatusContract.CONTENT_URI,
-                null, null, null, StatusContract.DEFAULT_SORT);
+        return new CursorLoader(getActivity(), TweetModel.CONTENT_URI,
+                null, null, null, TweetModel.DEFAULT_SORT);
     }
 
     @Override

@@ -2,6 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.app.yamba.app" >
 
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -12,7 +20,7 @@
             android:label="@string/title_activity_settings" >
         </activity>
         <activity
-            android:name="com.app.yamba.app.gui.activities.LandingActivity"
+            android:name="com.app.yamba.app.gui.activities.MainActivity"
             android:label="@string/title_activity_main" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,17 +29,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.app.yamba.app.gui.activities.WelcomeActivity2"
-            android:label="@string/title_activity_welcome" >
-        </activity>
-        <activity
-            android:name="com.app.yamba.app.gui.activities.FullscreenActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_fullscreen"
-            android:theme="@style/FullscreenTheme" >
-        </activity>
-        <activity
-            android:name="com.app.yamba.app.gui.activities.TweetsActivity"
+            android:name="com.app.yamba.app.gui.activities.TweetsEditorActivity"
             android:label="@string/title_activity_tweets" >
         </activity>
         <activity
@@ -60,6 +58,13 @@
             android:name="com.app.yamba.app.gui.activities.TweetsTimeLineActivity"
             android:label="@string/title_activity_tweets_time_line" >
         </activity>
+
+        <provider
+            android:name="com.app.yamba.app.provider.TweetProvider"
+            android:authorities="com.app.yamba.app.provider.TweetProvider"
+            android:enabled="true"
+            android:exported="true" >
+        </provider>
     </application>
 
 </manifest>

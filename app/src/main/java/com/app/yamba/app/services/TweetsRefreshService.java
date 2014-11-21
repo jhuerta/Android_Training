@@ -6,12 +6,14 @@ import android.app.IntentService;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
-import com.app.yamba.app.constants.ActionIdentifiers;
 import com.app.yamba.app.constants.IntentParams;
+import com.app.yamba.app.constants.IntentsActions;
+import com.app.yamba.app.model.TweetModel;
 import com.app.yamba.client.YambaClient;
 import com.app.yamba.client.YambaClientException;
 
@@ -60,24 +62,23 @@ public class TweetsRefreshService extends IntentService {
             for (YambaClient.Status status : timeline) {
                 values.clear();
 
-                /*TODO: Implement status contract Tweet Message Contract */
-                //values.put(StatusContract.Column.ID, status.getId());
-                //values.put(StatusContract.Column.USER, status.getUser());
-                //values.put(StatusContract.Column.MESSAGE, status.getMessage());
-                //values.put(StatusContract.Column.CREATED_AT, status.getCreatedAt().getTime());
-                //Uri uri = getContentResolver().insert(StatusContract.CONTENT_URI, values);
+                values.put(TweetModel.Column.ID, status.getId());
+                values.put(TweetModel.Column.USER, status.getUser());
+                values.put(TweetModel.Column.MESSAGE, status.getMessage());
+                values.put(TweetModel.Column.CREATED_AT, status.getCreatedAt().getTime());
+                Uri uri = getContentResolver().insert(TweetModel.CONTENT_URI, values);
 
-                //if (uri != null) {
-                //    count++;
-                 //   Log.d(TAG,
-                 //           String.format("%s: %s", status.getUser(),
-                 //                   status.getMessage()));
-                //}
+                if (uri != null) {
+                    count++;
+                   Log.d(TAG,
+                           String.format("%s: %s", status.getUser(),
+                                   status.getMessage()));
+                }
             }
 
             if (count > 0) {
                 sendBroadcast(new Intent(
-                        ActionIdentifiers.ACTION_NEW_TWEETS_AVAILABLE).putExtra(
+                        IntentsActions.ACTION_NEW_TWEETS_AVAILABLE).putExtra(
                         IntentParams.PARAM_TWEETS_REFRESH_SERVICE_COUNT, count));
             }
 

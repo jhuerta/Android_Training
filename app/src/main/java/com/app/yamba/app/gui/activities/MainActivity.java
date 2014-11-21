@@ -6,13 +6,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import com.app.yamba.app.R;
 import com.app.yambautilities.preferences.PreferencesHelper;
 
 
-public class LandingActivity extends Activity {
+public class MainActivity extends Activity {
 
-    private static final String TAG_LOG_LANDING_ACTIVITY=LandingActivity.class.getName();
+    private static final String TAG_LOG_LANDING_ACTIVITY=MainActivity.class.getName();
 
     protected void onCreate(Bundle savedInstanceState) {
 
